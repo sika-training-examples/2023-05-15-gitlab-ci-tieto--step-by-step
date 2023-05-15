@@ -1,15 +1,52 @@
-# .gitlab-ci.yml
+image: golang:1.19
 
-image: sikalabs/ci
+build:
+  parallel:
+    matrix:
+      - GOOS:
+          - linux
+          - darwin
+          - windows
+        GOARCH:
+          - amd64
+          - arm64
+          - x86
+  artifacts:
+    paths:
+      - hello-${GOOS}-${GOARCH}
+  script:
+    - sleep 20 && echo go build -o hello-${GOOS}-${GOARCH} main.go
 
-test1:
-  script: '[ "$(slu random int --max 2)" == "0" ]'
-  retry: 2
+build3:
+  parallel:
+    matrix:
+      - GOOS:
+          - linux
+          - darwin
+          - windows
+        GOARCH:
+          - amd64
+          - arm64
+          - x86
+  artifacts:
+    paths:
+      - hello-${GOOS}-${GOARCH}
+  script:
+    - sleep 20 && echo go build -o hello-${GOOS}-${GOARCH} main.go
 
-test2:
-  script: '[ "$(slu random int --max 2)" == "0" ]'
-  retry: 2
-
-test3:
-  script: '[ "$(slu random int --max 2)" == "0" ]'
-  retry: 2
+build2:
+  parallel:
+    matrix:
+      - GOOS:
+          - linux
+          - darwin
+          - windows
+        GOARCH:
+          - amd64
+          - arm64
+          - x86
+  artifacts:
+    paths:
+      - hello-${GOOS}-${GOARCH}
+  script:
+    - sleep 20 && echo go build -o hello-${GOOS}-${GOARCH} main.go
