@@ -8,3 +8,4 @@ build:
   stage: build
   script: echo foo && false
   when: manual
+  allow_failure: false
