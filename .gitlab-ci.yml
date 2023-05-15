@@ -2,6 +2,6 @@ image: sikalabs/ci
 
 deploy:
   script:
-    - echo kubectl apply -f kubernetes.yml
+    - kubectl apply -f kubernetes.yml
   tags:
     - shell
