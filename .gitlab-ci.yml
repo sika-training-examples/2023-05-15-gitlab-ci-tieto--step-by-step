@@ -1,1 +1,9 @@
-{"stages": ["build", "deploy"], "build-foo": {"stage": "build", "script": ["echo Build foo"]}, "deploy-foo": {"stage": "deploy", "script": ["echo Deploy foo"]}, "build-bar": {"stage": "build", "script": ["echo Build bar"]}, "deploy-bar": {"stage": "deploy", "script": ["echo Deploy bar"]}, "build-baz": {"stage": "build", "script": ["echo Build baz"]}, "deploy-baz": {"stage": "deploy", "script": ["echo Deploy baz"]}, "build-aaa": {"stage": "build", "script": ["echo Build aaa"]}, "deploy-aaa": {"stage": "deploy", "script": ["echo Deploy aaa"]}, "build-bbb": {"stage": "build", "script": ["echo Build bbb"]}, "deploy-bbb": {"stage": "deploy", "script": ["echo Deploy bbb"]}, "build-aaa111": {"stage": "build", "script": ["echo Build aaa111"]}, "deploy-aaa111": {"stage": "deploy", "script": ["echo Deploy aaa111"]}, "build-bbb111": {"stage": "build", "script": ["echo Build bbb111"]}, "deploy-bbb111": {"stage": "deploy", "script": ["echo Deploy bbb111"]}}
+build:
+  script: echo build ...
+
+deploy:
+  script: echo Test deploy ...
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE
