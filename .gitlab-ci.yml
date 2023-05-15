@@ -1,2 +1,16 @@
-job:
-  script: env
+variables:
+  TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID
+  IMAGE: $CI_REGISTRY_IMAGE:$TAG
+
+
+build:
+  script: echo $IMAGE
+
+
+build2:
+  variables:
+    TAG: xxx
+  script: echo $IMAGE
+
+env:
+  script: env | grep XXX
