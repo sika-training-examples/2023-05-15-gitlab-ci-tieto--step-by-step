@@ -4,13 +4,6 @@ variables:
 
 
 build:
-  script: echo $IMAGE
-
-
-build2:
-  variables:
-    TAG: xxx
-  script: echo $IMAGE
-
-env:
-  script: env | grep XXX
+  script:
+    - echo $FILE
+    - cat $FILE
