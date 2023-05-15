@@ -1,9 +1,13 @@
-variables:
-  TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID
-  IMAGE: $CI_REGISTRY_IMAGE:$TAG
+# .gitlab-ci.yml
 
-
-build:
+push:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
   script:
-    - echo $FILE
-    - cat $FILE
+    - echo push
+
+run:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+  script:
+    - echo run
