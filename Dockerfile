@@ -1,3 +1,11 @@
-FROM sikalabs/slu:v0.66.0
-CMD ["slu", "example-server"]
-EXPOSE 8000
+FROM golang:1.19 as build
+WORKDIR /build
+COPY app.go .
+ENV CGO_ENABLED=0
+RUN go build app.go
+
+FROM scratch
+WORKDIR /app
+COPY --from=build /build/app .
+CMD ["./app"]
+EXPOSE 80
