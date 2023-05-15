@@ -1,5 +1,6 @@
-image: sikalabs/ci
 
-deploy:
+job:
   script:
-    - kubectl apply -f kubernetes.yml
+    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - docker build -t $CI_REGISTRY_IMAGE .
+    - docker push $CI_REGISTRY_IMAGE
