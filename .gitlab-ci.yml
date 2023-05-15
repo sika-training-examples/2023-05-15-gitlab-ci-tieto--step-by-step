@@ -3,5 +3,3 @@ image: sikalabs/ci
 deploy:
   script:
     - kubectl apply -f kubernetes.yml
-  tags:
-    - shell
