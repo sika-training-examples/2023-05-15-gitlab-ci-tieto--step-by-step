@@ -1,16 +1,16 @@
 # .gitlab-ci.yml
 
 
-test1:
+tes t1:
   script: echo Test1!
-  stage: foo
+  stage: foo xxx
 
-test2:
-  stage: foo
+tes t2:
+  stage: foo xxx
   script: echo Test2!
 
 stages:
-  - foo
+  - foo xxx
   - bar
 
 build:
