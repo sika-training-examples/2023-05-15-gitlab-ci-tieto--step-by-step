@@ -1,17 +1,18 @@
 # .gitlab-ci.yml
 
+
+test1:
+  script: echo Test1!
+  stage: test
+
+test2:
+  stage: test
+  script: echo Test2!
+
 stages:
   - build
   - test
 
 build:
   stage: build
-  script: echo Build! && sleep 10
-
-test1:
-  stage: test
-  script: echo Test1!
-
-test2:
-  stage: test
-  script: echo Test2!
+  script: echo Build! && false
