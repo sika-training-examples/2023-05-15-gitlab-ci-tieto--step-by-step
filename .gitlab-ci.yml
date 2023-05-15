@@ -1,12 +1,11 @@
+# .gitlab-ci.yml
 
-Build Frontend:
-  script: echo Build Frontend ...
-  rules:
-    - changes:
-        - frontend/**
-
-Build Backend:
-  script: echo Build Backend ...
-  rules:
-    - changes:
-        - backend/**
+job:
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - now
+  script:
+    - date >> now
+    - date >> now2
+    - cat now
