@@ -1,6 +1,6 @@
 job1:
-  script: echo Hello World!
+  script: /usr/games/cowsay hello
+  tags:
+    - shell
 job2:
-  script:
-    - echo Hello World!
-    - echo Ahoj Svete!
+  script: /usr/games/cowsay hello
