@@ -1,3 +1,9 @@
+stages:
+  - unit_test
+  - integration_test
+  - build
+  - deploy
+  
 unit_test:
   stage: unit_test
   script: echo Unit Test ...
