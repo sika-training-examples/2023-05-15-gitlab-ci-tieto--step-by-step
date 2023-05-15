@@ -1,28 +1,3 @@
-# .gitlab-ci.yml
-
-stages:
-  - deploy dev
-  - deploy prod
-
-.dev:
-  stage: deploy dev
-  variables:
-    ENV: dev
-
-.prod:
-  stage: deploy prod
-  variables:
-    ENV: prod
-
-.deploy:
-  script: echo Deploy $ENV
-
-deploy dev:
-  extends:
-    - .deploy
-    - .dev
-
-deploy prod:
-  extends:
-    - .deploy
-    - .prod
+include:
+  - project: 'tieto/ci'
+    file: '/hello-world.gitlab-ci.yml'
