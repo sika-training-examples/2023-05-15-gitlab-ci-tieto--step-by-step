@@ -1,10 +1,7 @@
-# .gitlab-ci.yml
-test:
-  image: ondrejsika/pytest
+image: sikalabs/ci
+
+deploy:
   script:
-    - pytest --junitxml=report.xml
-  after_script:
-    - cat report.xml
-  artifacts:
-    reports:
-      junit: report.xml
+    - echo kubectl apply -f kubernetes.yml
+  tags:
+    - shell
