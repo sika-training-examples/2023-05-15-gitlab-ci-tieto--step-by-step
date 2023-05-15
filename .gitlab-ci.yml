@@ -3,16 +3,16 @@
 
 test1:
   script: echo Test1!
-  stage: test
+  stage: foo
 
 test2:
-  stage: test
+  stage: foo
   script: echo Test2!
 
 stages:
-  - build
-  - test
+  - foo
+  - bar
 
 build:
-  stage: build
+  stage: bar
   script: echo Build! && false
