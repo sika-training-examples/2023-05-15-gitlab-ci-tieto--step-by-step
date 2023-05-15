@@ -1,19 +1,11 @@
 # .gitlab-ci.yml
 
-image: golang:1.19
+variables:
+  BASE_HOST: dev.company.com
+  HOST: $CI_PROJECT_PATH_SLUG-$CI_COMMIT_REF_SLUG.$BASE_HOST
 
-build:
-  parallel:
-    matrix:
-      - GOOS:
-          - linux
-          - darwin
-          - windows
-        GOARCH:
-          - amd64
-          - arm64
-  artifacts:
-    paths:
-      - server-${GOOS}-${GOARCH}
-  script:
-    - go build -o server-${GOOS}-${GOARCH} app.go
+deploy:
+  script: echo 'Deploy!'
+  environment:
+    name: $CI_COMMIT_REF_SLUG
+    url: https://$HOST
