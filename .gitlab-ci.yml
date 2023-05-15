@@ -1,11 +1,11 @@
 
 job1:
   script:
-    - echo try
+    - echo try && false
     - echo cleanup
 
 job2:
   script:
-    - echo try
+    - echo try && false
   after_script:
     - echo cleanup
