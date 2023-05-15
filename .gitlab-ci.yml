@@ -7,3 +7,4 @@ stages:
 build:
   stage: build
   script: echo foo && false
+  allow_failure: true
