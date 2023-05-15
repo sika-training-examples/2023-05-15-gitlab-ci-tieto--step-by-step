@@ -1,11 +1,13 @@
-
 job1:
   script:
-    - echo try && false
-    - echo cleanup
+    - echo deploy!
+    - echo test!
+  after_script:
+    - echo $CI_JOB_STATUS
 
 job2:
   script:
-    - echo try && false
+    - echo deploy!
+    - echo test! && false
   after_script:
-    - echo cleanup
+    - echo $CI_JOB_STATUS
